@@ -351,7 +351,7 @@ class ChatPDF:
             fpaths = [fpaths]
         for fpath in fpaths:
             with open(fpath, 'rb') as file:
-                chunk = file.read(1024 * 1024)  # read only first 1MB
+                chunk = file.read(3*1024 * 1024)  # read only first 3MB
                 hasher.update(chunk)
                 target_file_data += chunk
 
