@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 """
+CUDA_VISIBLE_DEVICES=0 python run_chatpdf.py --gen_model_type auto --gen_model_name 01-ai/Yi-6B-Chat 
+--lora_model some_lora_model_path --rerank_model_name some_rerank_model --device cuda --corpus_files path/to/medical_corpus.jsonl 
+--query_file path/to/medical_query.txt --output_file path/to/output/predictions_result.jsonl --int4 --chunk_size 100 --chunk_overlap 10 --num_expand_context_chunk 2 --eval_batch_size 4 --test_size 100
+
 这段代码实现了一个用于文本查询和答案生成的系统，使用了一个称为`ChatPDF`的类，该类似乎是为处理文本数据和生成答案设计的。整体流程包括加载数据、处理用户查询、生成答案并评估生成的答案与真实答案之间的一致性。下面逐步解析代码的关键部分和功能：
 
 ### 脚本概览
