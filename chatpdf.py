@@ -346,17 +346,19 @@ class ChatPDF:
     @staticmethod
     def get_file_hash(fpaths):
         hasher = hashlib.md5()
-        target_file_data = bytes()
         if isinstance(fpaths, str):
             fpaths = [fpaths]
         for fpath in fpaths:
             with open(fpath, 'rb') as file:
-                chunk = file.read(3*1024 * 1024)  # read only first 3MB
-                hasher.update(chunk)
-                target_file_data += chunk
-
+                while True:
+                    chunk = file.read(1024 * 1024)  # Read chunks of 1 MB
+                    if not chunk:
+                        break
+                    hasher.update(chunk)
+    
         hash_name = hasher.hexdigest()[:32]
         return hash_name
+
 
     @staticmethod
     def extract_text_from_pdf(file_path: str):
