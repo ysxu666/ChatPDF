@@ -99,7 +99,7 @@ if __name__ == '__main__':
     print(f"truth_dict size: {len(truth_dict)}")
     # test data
     if args.query_file is None:
-        examples = ["肛门病变可能是什么疾病的症状?", "膺窗穴的定位是什么?"]
+        examples = ["2023年，中庚价值领航混合在报告期末的基金份额总额为多少？（保留2位有效数字，不加千位分隔符）", "2023年，中庚价值领航混合在报告期的基金份额净值增长率为多少？（以百分数表示，保留2位有效数字）"]
     else:
         with open(args.query_file, 'r', encoding='utf-8') as f:
             examples = [l.strip() for l in f.readlines()]
